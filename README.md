@@ -68,3 +68,24 @@ This project provides a **Jenkins pipeline** to monitor disk space and Oracle da
 | `port/serviceName`   | Oracle listener port and service name |
 
 
+## **Step 4: Run the Pipeline in Jenkins**
+
+Once your Jenkins pipeline is configured with the repository:
+
+Go to your pipeline job in Jenkins.
+
+Click Build Now in the left sidebar.
+
+Jenkins will execute the following stages automatically:
+
+Check /u01 and /u01/dmp space on the remote server
+
+Check Oracle tablespace usage (Used, Total, Free in MB)
+
+Check Oracle user password expiry for key accounts (APEX_PUBLIC_USER, ANONYMOUS, ORDS_PUBLIC_USER)
+
+You can monitor the output of each stage in Real-time Console Output.
+
+If needed, you can schedule this pipeline to run automatically using Build Triggers → Build periodically in Jenkins.
+
+⚠️ Make sure your Jenkins credentials (SSH and Oracle) are properly configured and the IDs in the Jenkinsfile match those credentials.
